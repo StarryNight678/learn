@@ -7,10 +7,6 @@ ssh $node "date;ls"
 echo done!
 done
 
-
-
-
-
 or
 
 #!/bin/bash
