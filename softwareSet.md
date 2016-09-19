@@ -9,3 +9,7 @@ cmd 管理员模式运行
 fsutil behavior set memoryusage 2
 
 ```
+
+
+#  VMware
+1.  桥接 
