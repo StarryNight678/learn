@@ -173,3 +173,58 @@ git杀手级功能之一
 但Git的分支是与众不同的，无论创建、切换和删除分支，Git在1秒钟之内就能完成！无论你的版本库是1个文件还是1万个文件。
 
 1. 创建和合并分支
+
+[分支创建和合并的原理](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375840038939c291467cc7c747b1810aab2fb8863508000)
+
+创建分支并切换
+```
+git checkout -b dev
+```
+git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：
+
+$ git branch dev
+$ git checkout dev
+
+查看当前分支
+```
+git branch
+```
+git branch命令会列出所有分支，当前分支前面会标一个*号。
+
+切换分支
+```
+git checkout master
+```
+
+合并分支
+```
+git merge dev
+```
+
+合并完成后，就可以放心地删除dev分支了：
+```
+$ git branch -d dev
+```
+
+小结
+Git鼓励大量使用分支：
+
+查看分支：git branch
+
+创建分支：git branch <name>
+
+切换分支：git checkout <name>
+
+创建+切换分支：git checkout -b <name>
+
+合并某分支到当前分支：git merge <name>
+
+删除分支：git branch -d <name>
+
+
+## 解决冲突
+
+需要先解决冲突然后合并
+
+
+    git log --graph
