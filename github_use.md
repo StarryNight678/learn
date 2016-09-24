@@ -153,7 +153,8 @@ git杀手级功能之一
 
 ## clone仓库
 
-  $ git clone git@github.com:michaelliao/gitskills.git
+
+    $ git clone git@github.com:michaelliao/gitskills.git
 克隆到本地
 
 ## 分支管理
