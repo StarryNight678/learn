@@ -26,6 +26,9 @@ $ git config --global user.email "email@example.com"
 ```
 - 通过git init命令把这个目录变成Git可以管理的仓库：
 
+让git显示颜色
+
+    git config --global color.ui true
 ```
     $ git init
 ```
@@ -46,7 +49,6 @@ $ git config --global user.email "email@example.com"
     git status
 
 - 历史记录
-
 
     git log
 
@@ -269,3 +271,85 @@ git stash list
 ````
 git branch -D feature-vulcan
 ````
+
+## 多人协作
+远程仓库的默认名称是origin。
+要查看远程库的信息，用`git remote`
+
+    $ git remote
+
+1. 首先，可以试图用git push origin branch-name推送自己的修改；
+
+1. 如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+
+1. 如果合并有冲突，则解决冲突，并在本地提交；
+
+1. 没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
+
+如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
+
+这就是多人协作的工作模式，一旦熟悉了，就非常简单。
+
+## 标签管理
+    $git tag v1.0
+
+对历史提交打tag
+
+    $ git tag v0.9 6224937
+
+查看标签
+
+     $git tag
+
+查看标签提交
+
+    git show v1.0
+
+## 小结
+命令`git tag <name>`用于新建一个标签，默认为HEAD，也可以指定一个commit id；
+
+`git tag -a <tagname> -m "blablabla...`可以指定标签信息；
+
+`git tag -s <tagname> -m "blablabla...`可以用PGP签名标签；
+
+命令git tag可以查看所有标签。
+
+
+## 搭建git服务器
+
+[搭建git服务器教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000)
+
+- 小结
+
+搭建Git服务器非常简单，通常10分钟即可完成；
+
+要方便管理公钥，用Gitosis；
+
+要像SVN那样变态地控制权限，用Gitolite
+
+
+## 总结
+
+Git虽然极其强大，命令繁多，但常用的就那么十来个，掌握好这十几个常用命令，你已经可以得心应手地使用Git了。
+
+友情附赠国外网友制作的Git Cheat Sheet，建议打印出来备用：
+
+[Git Cheat Sheet](https://pan.baidu.com/s/1kU5OCOB#path=%252Fpub%252Fgit)
+
+
+## 参考
+
+本文通过学习[Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+学习git提高效率
+
+
+
+
+
+
+
+
+
+
+
+
