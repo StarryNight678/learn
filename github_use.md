@@ -26,12 +26,13 @@ $ git config --global user.email "email@example.com"
 ```
 - 通过git init命令把这个目录变成Git可以管理的仓库：
 
-让git显示颜色
-
-    git config --global color.ui true
 ```
     $ git init
 ```
+让git显示颜色
+
+    git config --global color.ui true
+
 ## 提交
 - 添加文件
 
