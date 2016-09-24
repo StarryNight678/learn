@@ -16,7 +16,7 @@ Linus花了两周时间自己用C写了一个分布式版本控制系统，这�
 集中式 cvs最早,svn修正了cvs的问题,用的最多的集中式版本控制软件
 
 微软集中式版本控制系统叫VSS，集成在Visual Studio中。由于其反人类的设计，连微软自己都不好意思用了。
-# 使用命令
+## 使用命令
 
 - 设置用户和email
 
@@ -66,7 +66,7 @@ Linus花了两周时间自己用C写了一个分布式版本控制系统，这�
 
 
      git reset --hard HEAD
-    #回退到指定版本
+     回退到指定版本
      git reset --hard 3628164
 
 - 用来记录你的每一次命令,**这里可以查到回退的版本号**
@@ -121,14 +121,48 @@ git checkout -- file命令中的``--``很重要，没有--，就变成了“切�
 直接删,然后提交
 一是确实要从版本库中删除该文件，那就用命令`git rm`删掉，并且`git commit`
 
-# 远程仓库
+## 远程仓库
 git杀手级功能之一
-jjjj
+
+[使用github远程仓库](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001374385852170d9c7adf13c30429b9660d0eb689dd43a000)
+
+- 关联远端仓库
+
+
+    git remote add origin git@github.com:username/learngit.git
+- 本地内容推送
+
+
+    git push -u origin master
+    git push命令，实际上是把当前分支master推送到远程
+    从现在起，只要本地作了提交，就可以通过命令：
+把本地master分支的最新修改推送至GitHub，现在，你就拥有了真正的分布式版本库！
+
+
+    git push origin master
+
+- 小结
+
+
+要关联一个远程库，使用命令`git remote add origin` git@server-name:path/repo-name.git；
+
+关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
 
 
 ## clone仓库
 
-    git clone git@github.com:michaelliao/bootstrap.git
+  $ git clone git@github.com:michaelliao/gitskills.git
+克隆到本地
 
-## 推送
-可以推送pull request给官方仓库来贡献代码。
+## 分支管理
+分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。
+
+现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作。
+
+其他版本控制系统如SVN等都有分支管理，但是用过之后你会发现，这些版本控制系统创建和切换分支比蜗牛还慢，简直让人无法忍受，结果分支功能成了摆设，大家都不去用。
+
+但Git的分支是与众不同的，无论创建、切换和删除分支，Git在1秒钟之内就能完成！无论你的版本库是1个文件还是1万个文件。
+
+1. 创建和合并分支
