@@ -20,20 +20,21 @@ Linus花了两周时间自己用C写了一个分布式版本控制系统，这�
 
 - 设置用户和email
 
-
-    $ git config --global user.name "Your Name"
-    $ git config --global user.email "email@example.com"
-
+```
+$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+```
 - 通过git init命令把这个目录变成Git可以管理的仓库：
 
-
+```
     $ git init
-
+```
 ## 提交
 - 添加文件
 
-
+```
     git add readme.txt
+```
 - 用命令git commit告诉Git，把文件提交到仓库：
 
 
@@ -51,7 +52,7 @@ Linus花了两周时间自己用C写了一个分布式版本控制系统，这�
 
 - 显示具体修改
 
-
+```
     $ git diff
     diff --git a/r.txt b/r.txt
     index e69de29..6f1a89a 100644
@@ -61,23 +62,24 @@ Linus花了两周时间自己用C写了一个分布式版本控制系统，这�
     +jdsfja
     warning: LF will be replaced by CRLF in r.txt.
     The file will have its original line endings in your working directory.
-
+```
 -  版本回退
 
-
+```
      git reset --hard HEAD
      回退到指定版本
      git reset --hard 3628164
+```
 
 - 用来记录你的每一次命令,**这里可以查到回退的版本号**
 
-
+```
     $ git reflog
     1a7510f HEAD@{0}: commit: test
     acc549e HEAD@{1}: commit: git use
     228e176 HEAD@{2}: commit: learn git
     d3dd118 HEAD@{3}: clone: from
-
+```
 现在总结一下：
 HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令`git reset --hard commit_id`。
 穿梭前，用`git log`可以查看提交历史，以便确定要回退到哪个版本。
@@ -128,18 +130,21 @@ git杀手级功能之一
 
 - 关联远端仓库
 
-
+```
     git remote add origin git@github.com:username/learngit.git
+```
 - 本地内容推送
 
-
+```
     git push -u origin master
+```
     git push命令，实际上是把当前分支master推送到远程
     从现在起，只要本地作了提交，就可以通过命令：
 把本地master分支的最新修改推送至GitHub，现在，你就拥有了真正的分布式版本库！
 
-
+```
     git push origin master
+```
 
 - 小结
 
@@ -153,8 +158,9 @@ git杀手级功能之一
 
 ## clone仓库
 
-
+```
     $ git clone git@github.com:michaelliao/gitskills.git
+```
 克隆到本地
 
 ## 分支管理
