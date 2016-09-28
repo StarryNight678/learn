@@ -1,5 +1,5 @@
 
- 读书记录
+# 读书记录
 
 1.  ceph  cookcbook  
 1.  程序员实用算法  
@@ -12,3 +12,9 @@
 - to read:
 1. zookeeper
 1. 大话设计模式
+
+
+
+# 学习点
+
+1. Paxos协议
