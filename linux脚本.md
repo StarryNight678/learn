@@ -29,3 +29,7 @@ rename 's/\.new//' *.new
 ```
 ctags -R -f .tags
 ```
+
+# 查找特定字符
+
+ 	find . | xargs  grep -i   myproc
