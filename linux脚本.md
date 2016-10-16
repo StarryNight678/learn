@@ -31,21 +31,21 @@ ctags -R -f .tags
 ```
 
 # 查找特定字符
-
+```
  	find . | xargs  grep -i   myproc
-
+```
 
 - 输出特定列
-
+```
 	awk '{printf $1 "\n"}'
-
+```
 - 死循环
-
+```
 	while true
 	do
 	echo "hi"
 	done
-
+```
 - 查看每个命令的运行时间
 ```
 	#/bin/bash
@@ -72,7 +72,8 @@ do
                 do
                         if [ $num = $name ] ; then     
                         flag="t1"
-                                        fi    
+                fi
+                    
                 done
                 if [ $flag = "f1" ] ; then     
                    cat $name >>  log.time
