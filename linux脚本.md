@@ -5,6 +5,14 @@
 
 sed -i 's/[A-Z]/\l&/g' *.f90
 
+```
+for name in `cat a.txt`;
+do
+echo "$name.o:  $name.f90"
+printf  "\t\${FC}  -shared-intel -autodouble \${FLAG} -c  $name.f90"
+printf "\n"
+done
+```
 
 - 代码对齐
 [findent](https://sourceforge.net/projects/findent/files/)
@@ -70,17 +78,17 @@ do
         flag="f1"
                 for num in `squeue | awk '{printf $1 "\n"}' | tail -n +2 `;
                 do
-                        if [ $num = $name ] ; then     
+            
+                        if [ $num.txt = $name ] ; then     
                         flag="t1"
-                fi
-
+                        fi    
                 done
                 if [ $flag = "f1" ] ; then     
                    cat $name >>  log.time
                    rm  $name
                 fi  
         done
-        sleep 1200
+        sleep 300
 done
 ```
 
