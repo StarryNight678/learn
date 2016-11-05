@@ -1,3 +1,20 @@
+## 递归下载文件
+
+wget -r -l 3 -p -np -k  xxx.com/xxx
+
+不可以写 http
+wget加上参数之后，即可成为相当强大的下载工具。
+wget命令详解
+wget -r -l 3 -p -np -k http://xxx.com/xxx
+-r, --recursive（递归） specify recursive download.（指定递归下载）
+-k, --convert-links（转换链接） 
+make links in downloaded HTML point to local files.
+（将下载的HTML页面中的链接转换为相对链接即本地链接）
+-p, --page-requisites（页面必需元素） get all images,
+ etc. needed to display HTML page.（下载所有的图片等页面显示所需的内容）
+-np, --no-parent（不追溯至父级） don't ascend to 
+the parent directory.
+-l  递归下载的层数 否则会把整个网络下载下来
 
 ## linux 远程执行脚本
 ```
