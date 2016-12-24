@@ -1,48 +1,6 @@
 
 # java
-
-<<疯狂Java讲义  第3版 >>
 2016-09
-
-##1 java语言概述和开发环境
-
-- PATH环境设置
-添加java javac环境
-
-JAVA_HOME = C:\Program Files\Java\jdk1.8.0_101
-
-Path = %JAVA_HOME%\bin
-
-- CLASSPATH 
-作用搜索java类
-jdk 1.5以上版本完全不需要设置CLASSPATH
-会自动搜索当前路径和lib\dt.jar  lib\tools.jar
-
-
--  编译程序
-
-javac -d destdir srcdir
-
-
-##2 理解面向对象
-##3 数据类型和运算符
-##4 流程控制和数组
-##5 面向对象(上)
-##6 面向对象(下)
-##7 java基础类库
-##8 java集合
-##9 范型
-##10 异常处理
-##11 AWT编程
-##12 Swing编程
-##13 MySQL数据库与JDBC
-##14 Annotation(注释)
-##15 输入/输出
-##16 多线程
-##17 网络编程
-##18 类加载机制与反射
-
-
 1	基本说明
 源文件的文件名必须与public类的类名相同，一个java源文件最多定义一个public类。
 
