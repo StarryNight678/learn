@@ -13,6 +13,11 @@ JAVA_HOME = C:\Program Files\Java\jdk1.8.0_101
 
 Path = %JAVA_HOME%\bin
 
+- ubuntu下更改Java版本
+```
+update-alternatives --config java
+update-alternatives --config javac
+```
 - CLASSPATH 
 作用搜索java类
 jdk 1.5以上版本完全不需要设置CLASSPATH
@@ -23,8 +28,37 @@ jdk 1.5以上版本完全不需要设置CLASSPATH
 
 javac -d destdir srcdir
 
+程序被java执行. 必须包含main方法,方法是public static void 修饰. main方法的形参必须是 `String[] args`.
+**public static void 修饰符中,public 和static 修饰符位置可以互换,其余部分固定**
+
+对于有包的问题编译运行
+```
+package a.c
+public class Test{
+	
+}
+```
+
+javac example.java 
+需要将class文件放到 ./a/c 
+java a.c.Test
+
+
+源文件的文件名必须与public类的类名相同，一个java源文件最多定义一个public类。
 
 ##2 理解面向对象
+
+封装：对象细节隐藏起来
+继承：继承父类
+多态：子类对象可以直接赋给父类变量，运行时依然是子类行为特征。
+java不支持多继承
+
+类间的三种关系：
+关联：  组合  聚合
+泛化：
+
+
+
 ##3 数据类型和运算符
 ##4 流程控制和数组
 ##5 面向对象(上)
@@ -42,18 +76,25 @@ javac -d destdir srcdir
 ##17 网络编程
 ##18 类加载机制与反射
 
+## 垃圾回收机制(GC)
+主要做两件事:
+1. 发现无用的对象
+1. 回收被无用对象占用的内存空间
+
+建议进行垃圾回收.`System.gc();`
+
+## 常用库使用
+
+
+## String操作
+
+
+
 
 1	基本说明
-源文件的文件名必须与public类的类名相同，一个java源文件最多定义一个public类。
 
-封装：对象细节隐藏起来
-继承：继承父类
-多态：子类对象可以直接赋给父类变量，运行时依然是子类行为特征。
-java不支持多继承
 
-类间的三种关系：
-关联：  组合  聚合
-泛化：
+
 依赖：
 
 java所有的关键字都是小写的
