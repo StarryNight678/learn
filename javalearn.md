@@ -171,6 +171,45 @@ javadoc 选项  java源文件|包
     应该为`long  longNum=99999999999999L;`
 
 
+原码: 数值转换成二进制.
+实际按照补码保存二进制数.
+**正数的补码和原码完全相同,负数的补码是反码+1**
+
+ 1. 二进制  0B10
+ 1. 八进制  010
+ 1. 十进制   10
+ 1. 十六进制 0X10
+
+java使用unicode 进行编码,使用两个字节.16位.
+
+
+- 强制类型转换
+(type)value
+
+经常出问题的地方,3.2为double类型.
+float a=3.2;
+
+- 字符串转成int类型
+	String c="45";
+	int nc=Integer.parseInt(c);
+
+每个对应的包装类提供相应方法parseXxx(String c).转换成基本类型.
+
+- 类型自动提升
+System.out.println("hello"+'a'+7);  //输出 helloa7
+System.out.println('a'+7+"hello");  //输出 104hello
+
+- 常量池
+java使用常量池来缓存字符串直接量.后面再使用,直接使用常量池中的字符串直接量.
+常量池,指在编译期间被确定.并被保存在.class文件中.包括类 方法 接口中的常量和字符串常量.
+
+- 运算符
+
+`++自加运算`
+位运算符
+
+
+
 ##4 流程控制和数组
 ##5 面向对象(上)
 ##6 面向对象(下)
@@ -187,20 +226,48 @@ javadoc 选项  java源文件|包
 ##17 网络编程
 ##18 类加载机制与反射
 
-## 垃圾回收机制(GC)
+##19 垃圾回收机制(GC)
 主要做两件事:
 1. 发现无用的对象
 1. 回收被无用对象占用的内存空间
 
 建议进行垃圾回收.`System.gc();`
 
-## 常用库使用
+##20 常用库使用
 
 
-## 异常处理
+##21 异常处理
 
-## String操作
+##22 String操作
 
+**字符串是常量,创建后不能改变**
+两种创建
+```
+        String str = "abc";
+        char data[] = {'a', 'b', 'c'};
+        String s2 = new String(data);
+        System.out.println(str);
+        System.out.println(s2);
+```
+
+java split使用
+
+```
+ String[]	split(String regex) 
+          根据给定正则表达式的匹配拆分此字符串。
+ String[]	split(String regex, int limit) 
+          根据匹配给定的正则表达式来拆分此字符串。
+根据空格划分字符串
+       String str1 = "a b csad fjasj";
+        String str3[] = str1.split(" ");
+         for (int i=0;i<str3.length;i++) {
+            System.out.println(str3[i]);
+        }
+
+```
+
+
+##23 其他
 1	基本说明
 
 依赖：
