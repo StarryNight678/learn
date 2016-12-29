@@ -157,7 +157,7 @@ javadoc 选项  java源文件|包
 	1. char Character  2字节
 
 	- 引用类型4种
-	类 接口  数组类型  null
+	类  接口  数组类型  null
 
 	**引用类型相当于一个指针**
 
@@ -206,11 +206,113 @@ java使用常量池来缓存字符串直接量.后面再使用,直接使用常�
 - 运算符
 
 `++自加运算`
-位运算符
 
+       int a=5;
+       int b=a++ + 6;
+
+输出 a=6  b=11   
+
+ 	   int a=5;
+       int b=++a + 6;
+
+输出 a=6  b=12 
+
+
+	- 位运算符
+
+	<<   左移.左边补0
+	>>   有符号右移,移出的操作数使用符号位补充.
+	>>>  无符号右移.
+	注意: 
+
+	1. 低于int类型的类型.操作数自动转换为int再移位.
+	1. 一个数过多,自动取余.
+	1. 并不会改变操作数本身,只是得到新的结果.
+
+	- 3目运算符
+	(if操作)  ? if-true: if-false;
 
 
 ##4 流程控制和数组
+
+- 选择
+if,switch
+
+```
+if (){
+
+}else if (){
+	
+}else{
+	
+}
+```
+
+switch语句.
+注意:
+switch后面的表达式,只能是 byte,short,char,int 四种整数类型. String(java 7)
+或者是枚举类型.
+```
+switch()
+{
+	case a:
+	{
+
+		xx;
+		break;
+	}
+	default:
+	{
+
+	}
+}
+```
+
+- 枚举类型
+```
+public class Test {
+    public enum rainbowColor {RED, ORANGE, YELLOW, GREEN, CYAN, BLUE, PURPLE}
+    public static void main(String[] args) {
+        rainbowColor c = rainbowColor.BLUE;
+        System.out.println(c.toString());
+        //遍历操作
+        EnumSet<rainbowColor> EnumSetJz = EnumSet.range(rainbowColor.RED, rainbowColor.PURPLE);
+        for (rainbowColor t : EnumSetJz) {
+            System.out.println(t.toString());
+        }
+    }
+}
+```
+
+
+- 循环
+while ,do while ,for 三种
+foreach 新的循环.
+
+
+- while
+
+初始化语句.
+while(循环条件){
+语句.
+迭代语句.
+}
+
+
+初始化语句.
+do{
+语句.
+迭代语句.
+}while(循环条件)
+
+- 数组类型
+
+数组是一种数据类型. int[]
+
+
+P86
+
+
 ##5 面向对象(上)
 ##6 面向对象(下)
 ##7 java基础类库
@@ -271,6 +373,7 @@ java split使用
 1	基本说明
 
 依赖：
+
 
 
 
