@@ -338,7 +338,71 @@ intp[] arr=new int[6];
 Arrays
 
 
+
 ##5 面向对象(上)
+
+- 注意
+static 修饰的成员不能访问没有static修饰的成员.
+- private protected public
+
+- 构造器
+没有返回值. 返回值也不是void类型.没有return.
+
+- this引用
+构造器中引用正在初始化的对象.
+方法中引用调用该方法的对象.
+谁调用这个this,就代表谁.
+
+static 修饰的方法中,不能使用this引用.
+
+返回类型是对象.
+```
+public class Test {
+
+    public int n;
+
+    public Test grow() {
+        n = 1;
+        return this;
+    }
+}
+```
+
+- 参数传递
+java中参数传递机制.使用值传递.副本传递.
+
+- 形参个数可变方法
+
+可变的形参只能位于形参列表的最后.
+
+参数变化例子.
+
+```
+    public void info(String... str) {
+        for (String s : str) {
+            System.out.println(s);
+        }
+    }
+```
+- 方法重载
+
+P121
+
+- super关键字
+
+- 继承和多态
+
+- 继承和组合
+
+
+
+final 与 abstract 只能出现一次.
+可以与static 组合起来修饰方法.
+
+
+静态方法属于类. 不能直接访问非静态成员.
+
+
 ##6 面向对象(下)
 ##7 java基础类库
 ##8 java集合
