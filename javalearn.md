@@ -32,7 +32,7 @@
 		- [8.2  cllection和iterator接口](#82--cllection和iterator接口)
 		- [8.3  set集合](#83--set集合)
 		- [8.4  list集合](#84--list集合)
-		- [8.5  queueu集合](#85--queueu集合)
+		- [8.5  Queue集合](#85--queue集合)
 		- [8.6  java 8 增强的map集合](#86--java-8-增强的map集合)
 		- [8.7  hashSet和hashMap性能选项](#87--hashset和hashmap性能选项)
 		- [8.8  操作集合的工具类: collections](#88--操作集合的工具类-collections)
@@ -823,10 +823,75 @@ HashSet  TreeSet  EnumSet 都是线程不安全的.
 
 
 ###8.4  list集合
-###8.5  queueu集合
+
+list判断对象相等使用,euquals()方法.
+
+- 排序
+
+```
+class Test {
+    public static void main(String[] args) {
+        List ll = new ArrayList();
+        ll.add(1);
+        ll.add(2);
+        ll.add(8);
+        ll.add(6);
+        ll.add(3);
+        System.out.println(ll);
+        ll.sort((o2, o3) -> Integer.parseInt(o3.toString()) - Integer.parseInt(String.valueOf(o2.toString())));
+        System.out.println(ll);
+    }
+}
+
+```
+
+ListIterator 迭代器.
+
+
+ArrayList 和 Vector 实现类. Vector比较古老,少用.
+ArrayList 线程不安全,vector线程安全.vector的性能比ArrayList低.
+保证线程安全也不推荐是vector.有Collections工具类.
+
+Stack 继承Vector 古老,性能差.  推荐是ArrayDeque
+
+
+- 固定长度List
+Arrays.ArrayList 固定长度.无法增删元素.
+
+
+
+###8.5  Queue集合
+
+- PriorityQueue实现类
+
+元素,按照大小重新排序.
+
+- Deque双端队列.
+
+可以当成stack使用.
+
+addFirst
+addLast
+
+- LinkedList 实现类
+
+实现deque 当成双端队列使用. 可以当场栈使用.
+
+
 ###8.6  java 8 增强的map集合
+
+java 首先实现Map,包装一个value都为null的map的集合实现了set.
+
+- HashTable  和 HashMap 区别.
+
+
 ###8.7  hashSet和hashMap性能选项
+
+
 ###8.8  操作集合的工具类: collections
+
+
+
 ###8.9  繁琐的接口: enumeration
 
 
