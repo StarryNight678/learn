@@ -30,29 +30,24 @@ public E pop()
 ## java 写文件
 
 ```
-import org.apache.storm.scheduler.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
-public void writeFile(String str) {
-    String fileName = "/home/jason/stormScheduleLog.txt";
+    String fileName = "/home/jason/code/01_test/jz_1/wordCountBolt.txt";
     try {
         BufferedWriter out=new BufferedWriter(new FileWriter(fileName));
+        // 打开一个写文件器，构造函数中的第二个参数true表示以追加形式写文件      
+        //     FileWriter writer = new FileWriter(fileName, true);
         out.write(str);
         out.close();
     } catch (IOException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();
     }
-}
-
 ```
+
+
 
 
 

@@ -39,12 +39,14 @@ javac -d destdir srcdir
 对于有包的问题编译运行
 
 
+
 ```
 package a.c
 public class Test{PP
 	
 }
 ```
+
 方法1:
 javac example.java 
 需要将class文件放到 ./a/c 
