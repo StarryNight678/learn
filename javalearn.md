@@ -4,6 +4,54 @@
 <<疯狂Java讲义第3版 >>
 2016-09
 
+# java学习
+
+- 栈stack
+
+```
+public class Test2 {
+
+    private Stack<Integer> stackData;
+    private Stack<Integer> stackMin;
+
+    public Test2() {
+        this.stackData = new Stack<Integer>();
+        this.stackMin = new Stack<Integer>();
+    }
+}
+
+peek
+public E peek()
+查看堆栈顶部的对象，但不从堆栈中移除它。
+
+pop
+
+public E pop()
+移除堆栈顶部的对象，并作为此函数的值返回该对象。
+
+```
+
+
+
+## java 写文件
+
+```
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+    String fileName = "/home/jason/code/01_test/jz_1/wordCountBolt.txt";
+    try {
+        BufferedWriter out=new BufferedWriter(new FileWriter(fileName));
+        // 打开一个写文件器，构造函数中的第二个参数true表示以追加形式写文件      
+        //     FileWriter writer = new FileWriter(fileName, true);
+        out.write(str);
+        out.close();
+    } catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+```
 
 
 ##1 java语言概述和开发环境
@@ -154,6 +202,7 @@ javadoc 选项  java源文件|包
 	**char 也是一种整数类型，相当于无符号整数类型**
 
 	java 的8种基本类型对应了包装类
+
 	1. boolean Boolean
 	1. byte Byte       1字节
 	1. short Short     2字节
@@ -1076,3 +1125,38 @@ native
 
 
 动态链接库。
+
+
+
+##  其他
+
+1. Java内存模型
+
+1. Java线程进程
+
+- [进程间通信](http://polim.iteye.com/blog/1278435)
+
+进程间通信的主要方法有： 
+（1）管道（Pipe）：管道可用于具有亲缘关系进程间的通信，允许一个进程和另一个与它有共同祖先的进程之间进行通信。 
+（2）命名管道（named pipe）：命名管道克服了管道没有名字的限制，因此，除具有管道所具有的功能外，它还允许无亲缘关系进程间的通信。命名管道在文件系统中有对应的文件名。命名管道通过命令mkfifo或系统调用mkfifo来创建。 
+（3）信号（Signal）：信号是比较复杂的通信方式，用于通知接受进程有某种事件发生，除了用于进程间通信外，进程还可以发送信号给进程本身；linux除了支持Unix早期信号语义函数sigal外，还支持语义符合Posix.1标准的信号函数sigaction（实际上，该函数是基于BSD的，BSD为了实现可靠信号机制，又能够统一对外接口，用sigaction函数重新实现了signal函数）。Linux中可以使用kill -12 进程号，像当前进程发送信号，但前提是发送信号的进程要注册该信号。 
+example: 
+OperateSignal operateSignalHandler = new OperateSignal(); 
+Signal sig = new Signal("USR2"); 
+Signal.handle(sig, operateSignalHandler); 
+（4）消息（Message）队列：消息队列是消息的链接表，包括Posix消息队列system V消息队列。有足够权限的进程可以向队列中添加消息，被赋予读权限的进程则可以读走队列中的消息。消息队列克服了信号承载信息量少，管道只能承载无格式字节流以及缓冲区大小受限等缺限。 
+（5）共享内存：使得多个进程可以访问同一块内存空间，是最快的可用IPC形式。是针对其他通信机制运行效率较低而设计的。往往与其它通信机制，如信号量结合使用，来达到进程间的同步及互斥。 
+（6）内存映射（mapped memory）：内存映射允许任何多个进程间通信，每一个使用该机制的进程通过把一个共享的文件映射到自己的进程地址空间来实现它。 
+Java 中有类 MappedByteBuffer实现内存映射 
+（7）信号量（semaphore）：主要作为进程间以及同一进程不同线程之间的同步手段。 
+（8）套接口（Socket）：更为一般的进程间通信机制，可用于不同机器之间的进程间通信。起初是由Unix系统的BSD分支开发出来的，但现在一般可以移植到其它类Unix系统上：Linux和System V的变种都支持套接字。 
+
+
+Java没有共享内存机制，同时Java的管道也只能用于Java线程间的通讯。
+
+看来Java只能通过Socket实现进程间通讯了。Socket本身确实具有很好的通用性，而且可以跨主机通讯。但是Scoket本身也有一些弱点，如效率相对其他方式较低，开发成本较高等。最重要的是，这篇文章我们要介绍的是Java如何使用PIPE实现进程间通讯。所以只好委屈一下Socket
+
+3.1管道的本质
+首先，我们需要说明一个基本概念：什么是管道？ 
+管道是Linux中很重要的一种通信方式,是把一个程序的输出直接连接到另一个程序的输入,常说的管道多是指无名管道,无名管道只能用于具有亲缘关系的进程之间，这是它与有名管道的最大区别。有名管道叫named pipe或者FIFO(先进先出)，可以用函数mkfifo()创建。
+
