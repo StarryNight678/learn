@@ -1217,6 +1217,31 @@ java类,加载连接和初始化知识.
 1. 连接:二进制合并到JRE中
 1. 初始化:类变量初始化
 
+Java 反射API的第一个主要作用是获取程序在运行时刻的内部结构。
+
+只要有了java.lang.Class类 的对象，就可以通过其中的方法来获取到该类中的构造方法、域和方法。对应的方法分别是getConstructor、getField和getMethod。
+
+反射API的另外一个作用是在运行时刻对一个Java对象进行操作。
+
+```java
+MyClass myClass = new MyClass(0); //一般做法
+myClass.increase(2);
+System.out.println("Normal -> " + myClass.count);
+try {
+    Constructor constructor = MyClass.class.getConstructor(int.class); //获取构造方法
+    MyClass myClassReflect = constructor.newInstance(10); //创建对象
+    Method method = MyClass.class.getMethod("increase", int.class);  //获取方法
+    method.invoke(myClassReflect, 5); //调用方法
+    Field field = MyClass.class.getField("count"); //获取域
+    System.out.println("Reflect -> " + field.getInt(myClassReflect)); //获取域的值
+} catch (Exception e) { 
+    e.printStackTrace();
+} 
+```
+
+- 动态代理
+
+
 
 ##19 垃圾回收机制(GC)
 主要做两件事:
